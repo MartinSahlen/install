@@ -26,8 +26,8 @@ cat npm-global-requirements.txt | xargs sudo npm install -g
 # Install python packages
 cat python-global-requirements.txt | xargs sudo easy_install
 
-# Copy boilerplate bash profile
-test -f ~/.bash_profile || cp bash_profile ~/.bash_profile
+# Copy boilerplate bash profile and init settings
+test -f ~/.bash_profile || `cp bash_profile ~/.bash_profile && source ~/.bash_profile`
 
 # Make ssh key
 test -d ~/.ssh || ssh-keygen -t rsa
