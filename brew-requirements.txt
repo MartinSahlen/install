@@ -1,0 +1,5 @@
+git
+bash-completion
+node
+jenv
+redis

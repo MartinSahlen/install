@@ -1,0 +1,7 @@
+google-chrome
+firefox
+opera
+spotify
+pycharm
+iterm2
+java
