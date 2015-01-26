@@ -12,7 +12,7 @@ brew install caskroom/cask/brew-cask;
 brew cask doctor;
 
 # Install Gitaware
-test -d ~/.bash || `mkdir ~/.bash && git clone git://github.com/jimeh/git-aware-prompt.git ~/.bash`
+test -d ~/.bash/git-aware-prompt || `mkdir ~/.bash && git clone git://github.com/jimeh/git-aware-prompt.git ~/.bash/git-aware-prompt`
 
 # Install brew packages
 cat brew-requirements.txt | xargs brew install
