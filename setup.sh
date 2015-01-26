@@ -12,7 +12,7 @@ brew install caskroom/cask/brew-cask;
 brew cask doctor;
 
 # Install Gitaware
-test -d ~/.bash && mkdir ~/.bash && git clone git://github.com/jimeh/git-aware-prompt.git ~/.bash
+test -d ~/.bash || `mkdir ~/.bash && git clone git://github.com/jimeh/git-aware-prompt.git ~/.bash`
 
 # Install brew packages
 cat brew-requirements.txt | xargs brew install
@@ -26,4 +26,4 @@ cat npm-global-requirements.txt | xargs sudo npm install -g
 # Install python packages
 cat python-global-requirements.txt | xargs sudo easy_install
 
-test -f ~/.bash_profile && cp bash_profile ~/.bash_profile
+test -f ~/.bash_profile || cp bash_profile ~/.bash_profile
