@@ -3,3 +3,4 @@ bash-completion
 node
 jenv
 redis
+elb-tools
