@@ -20,7 +20,7 @@ cat brew-requirements.txt | xargs brew install
 # Install brew cask packages
 cat cask-requirements.txt | xargs brew cask install
 
-# Install brew cask packages
+# Install global npm packages
 cat npm-global-requirements.txt | xargs sudo npm install -g
 
 # Install python packages
