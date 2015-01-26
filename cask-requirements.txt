@@ -5,3 +5,4 @@ spotify
 pycharm
 iterm2
 java
+intellij-idea
