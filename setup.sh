@@ -4,6 +4,7 @@ xcode-select --install;
 # Install or update Homebrew
 if hash brew 2>/dev/null; then
     brew update;
+    brew upgrade
 else
     ruby \
     -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)" \
