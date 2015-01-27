@@ -6,3 +6,7 @@ pycharm
 iterm2
 java
 intellij-idea
+slack
+dropbox
+google-drive
+cocoarestclient
