@@ -24,6 +24,7 @@ fi
 
 # Install Cask requirements
 cat cask-requirements.txt | xargs brew-cask install
+brew-cask cleanup;
 
 # Install Gitaware
 test -d ~/.bash/git-aware-prompt || `mkdir ~/.bash && git clone git://github.com/jimeh/git-aware-prompt.git ~/.bash/git-aware-prompt`
@@ -41,6 +42,3 @@ test -f ~/.bash_profile || `cp bash_profile ~/.bash_profile && source ~/.bash_pr
 
 # Make ssh key
 test -d ~/.ssh || ssh-keygen -t rsa
-
-# Clean up cask cache
-brew-cask cleanup;
