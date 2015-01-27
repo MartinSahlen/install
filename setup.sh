@@ -40,5 +40,8 @@ cat python-global-requirements.txt | xargs sudo easy_install
 # Copy boilerplate bash profile and init settings
 test -f ~/.bash_profile || `cp bash_profile ~/.bash_profile && source ~/.bash_profile`
 
+# Copy vim settings
+test -f ~/.vimrc || cp vimrc ~/.vimrc
+
 # Make ssh key
 test -d ~/.ssh || ssh-keygen -t rsa
