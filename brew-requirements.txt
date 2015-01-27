@@ -3,4 +3,5 @@ bash-completion
 node
 jenv
 redis
+puppet
 elb-tools
