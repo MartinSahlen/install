@@ -10,3 +10,4 @@ slack
 dropbox
 google-drive
 cocoarestclient
+sequel-pro
