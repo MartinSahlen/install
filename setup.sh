@@ -14,6 +14,7 @@ fi
 
 # Install Homebrew requirements
 cat brew-requirements.txt | xargs brew install
+brew cleanup
 
 # Install or update Cask
 if hash brew-cask 2>/dev/null; then
