@@ -18,7 +18,7 @@ test -d ~/.bash/git-aware-prompt || `mkdir ~/.bash && git clone git://github.com
 cat brew-requirements.txt | xargs brew install
 
 # Install brew cask packages
-cat cask-requirements.txt | xargs brew cask install
+cat cask-requirements.txt | xargs brew-cask install
 
 # Install global npm packages
 cat npm-global-requirements.txt | xargs sudo npm install -g
