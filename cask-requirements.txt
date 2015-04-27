@@ -11,3 +11,4 @@ dropbox
 google-drive
 cocoarestclient
 sequel-pro
+heroku-toolbelt
