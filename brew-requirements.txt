@@ -1,7 +1,6 @@
 git
 bash-completion
 node
-Caskroom/cask/java
 jenv
 redis
 elb-tools

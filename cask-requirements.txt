@@ -12,3 +12,4 @@ google-drive
 cocoarestclient
 sequel-pro
 heroku-toolbelt
+sublime-text
