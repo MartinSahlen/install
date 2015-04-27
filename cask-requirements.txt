@@ -2,10 +2,10 @@ google-chrome
 firefox
 opera
 spotify
-pycharm
+pycharm-ce
 iterm2
 java
-intellij-idea
+intellij-idea-ce
 slack
 dropbox
 google-drive
