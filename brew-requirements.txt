@@ -3,3 +3,5 @@ bash-completion
 node
 jenv
 redis
+mysql
+postgresql
