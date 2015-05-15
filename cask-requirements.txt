@@ -13,3 +13,4 @@ cocoarestclient
 sequel-pro
 heroku-toolbelt
 sublime-text
+skype
