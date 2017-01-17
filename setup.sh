@@ -1,49 +1,96 @@
-# Install Xcode tools
-xcode-select --install;
+function install_xcode_cli {
+  echo "Installing Xcode CLI tools..."
+  xcode-select --install;
+}
 
-# Install or update Homebrew
-if hash brew 2>/dev/null; then
-    brew update;
-    brew upgrade
-else
+function install_brew {
+  echo "Installing Homebrew..."
+  if !(hash brew 2>/dev/null); then
     ruby \
     -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)" \
     </dev/null
-    brew doctor;
-fi
+    brew doctor
+  fi
+}
 
-# Install Homebrew requirements
-cat brew-requirements.txt | xargs brew install
-brew cleanup
-
-# Install or update Cask
-if hash brew-cask 2>/dev/null; then
-    :
-else
+function install_brew_cask {
+  echo "Installing Homebrew Cask..."
+  brew cask > /dev/null 2>&1;
+  if [ $? -ne 0 ]; then
     brew install caskroom/cask/brew-cask;
-    brew-cask doctor;
-fi
+    brew cask doctor;
+  fi
+}
 
-# Install Cask requirements
-cat cask-requirements.txt | xargs brew-cask install
-brew-cask cleanup;
+function setup_brew {
+  echo "Setting up brew..."
+  install_brew
+  install_brew_cask
+  brew update
+  brew prune
+}
 
-# Install Gitaware
-test -d ~/.bash/git-aware-prompt || `mkdir ~/.bash && git clone git://github.com/jimeh/git-aware-prompt.git ~/.bash/git-aware-prompt`
+function install_brew_deps {
+  echo "Installing brew dependencies..."
+  cat brew-requirements.txt | xargs brew install
+  brew cleanup
+  brew doctor
+}
 
-# Install global npm packages
-if hash npm 2>/dev/null; then
-	cat npm-global-requirements.txt | xargs sudo npm install -g
-fi
+function install_brew_cask_deps {
+  echo "Installing brew cask dependencies..."
+  cat cask-requirements.txt | xargs brew cask install --appdir="/Applications"
+  brew cleanup
+  brew doctor
+}
 
-# Install python packages
-cat python-global-requirements.txt | xargs sudo easy_install
+function install_gcloud_tools {
+  echo "Installing gcloud tools..."
+  if !(hash gcloud 2>/dev/null); then
+    curl https://sdk.cloud.google.com | bash
+    exec -l $SHELL
+    gcloud -q init
+  fi
 
-# Copy boilerplate bash profile and init settings
-test -f ~/.bash_profile || `cp bash_profile ~/.bash_profile && source ~/.bash_profile`
+  if !(hash kubectl 2>/dev/null); then
+    gcloud -q components install kubectl
+  fi
 
-# Copy vim settings
-test -f ~/.vimrc || cp vimrc ~/.vimrc
+  gcloud -q components install alpha
+  gcloud -q components update alpha
+  gcloud -q components install beta
+  gcloud -q components update beta
+  gcloud -q components update
+}
 
-# Make ssh key
-test -d ~/.ssh || ssh-keygen -t rsa
+function install_git_aware {
+  echo "Installing git aware..."
+  test -d ~/.bash/git-aware-prompt || `mkdir ~/.bash && git clone git://github.com/jimeh/git-aware-prompt.git ~/.bash/git-aware-prompt`
+}
+
+function install_npm_globals {
+  echo "Installing npm globals..."
+  if hash npm 2>/dev/null; then
+  	cat npm-global-requirements.txt | xargs sudo npm install -g
+  fi
+}
+
+function install_python_globals {
+  echo "Installing python globals..."
+  cat python-global-requirements.txt | xargs sudo easy_install
+}
+
+function install_dotfiles {
+  echo "Installing dotfiles"
+  # Copy boilerplate bash profile and init settings
+  test -f ~/.bash_profile || `cp bash_profile ~/.bash_profile && source ~/.bash_profile`
+
+  # Copy vim settings
+  test -f ~/.vimrc || cp vimrc ~/.vimrc
+
+  # Make ssh key
+  test -d ~/.ssh || ssh-keygen -t rsa
+}
+
+
+install_gcloud_tools

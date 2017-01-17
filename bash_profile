@@ -1,44 +1,56 @@
+# Reset
+Color_Off='\e[0m'       # Text Reset
+
+# Regular Colors
+Black='\e[0;30m'        # Black
+Red='\e[0;31m'          # Red
+Green='\e[0;32m'        # Green
+Yellow='\e[0;33m'       # Yellow
+Blue='\e[0;34m'         # Blue
+Purple='\e[0;35m'       # Purple
+Cyan='\e[0;36m'         # Cyan
+White='\e[0;37m'        # White
+
 if [ -f `brew --prefix`/etc/bash_completion ]; then
     . `brew --prefix`/etc/bash_completion
 fi
 
+export GO15VENDOREXPERIMENT=1
+export GOPATH=$HOME/repositories/gopath
+export PATH=$PATH:$GOPATH/bin
+
+# Scrappy scripts
+export PATH=$PATH:$HOME/repositories/scrappy-scripts/src
+alias "uc-go-src"="cd $GOPATH/src/github.com/unacast"
+
+#Android Studio
+export STUDIO_JDK=/Library/Java/JavaVirtualMachines/jdk1.7.0_79.jdk
+
 #Git aware
 export GITAWAREPROMPT=~/.bash/git-aware-prompt
 source $GITAWAREPROMPT/main.sh
-export PS1="\u@\h \w \[$txtcyn\]\$git_branch\[$txtred\]\$git_dirty\[$txtrst\]\$ "
+export PS1="\u@\h \w \[$txtcyn\]\$git_branch\[$txtred\]\$git_dirty\[$txtrst\]"
 export SUDO_PS1="\[$bakred\]\u@\h\[$txtrst\] \w\$ "
+
+export PS1=$PS1"\n\[$Yellow\]Project: \[$Purple\]\$(uc-current-env) \[$Yellow\]Cluster: \[$Purple\]\$(uc-current-cluster)\[$Color_Off\]\n$"
 
 # Jenv
 export PATH="$HOME/.jenv/bin:$PATH"
 eval "$(jenv init -)"
 if which jenv > /dev/null; then eval "$(jenv init -)"; fi
 
-export JAVA_HOME="$(/usr/libexec/java_home)"
+export JAVA_HOME="$(/usr/libexec/java_home -v 1.8)"
 
-# AWS / ELASTIC BEANSTALK
-export AWS_ACCESS_KEY=''
-export AWS_SECRET_KEY=''
-export AWS_ELB_HOME='/usr/local/Cellar/elb-tools/1.0.35.0/libexec'
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f ~/google-cloud-sdk/path.bash.inc ]; then
+  source ~/google-cloud-sdk/path.bash.inc
+fi
 
-# DJANGO
-export DJANGO_PRODUCTION_MODE=false
-export DJANGO_ALLOWED_HOSTS='localhost' 
-export DJANGO_SECRET_KEY=''
-export DJANGO_DB_ENGINE='django.db.backends.sqlite3'
-export DJANGO_DB_NAME='db.sqlite3'
-export DJANGO_DB_PASSWORD=''
-export DJANGO_DB_USERNAME=''
-export DJANGO_DB_HOST=''
-export DJANGO_DB_PORT=''
-export DJANGO_BASE_URL='http://localhost:8000'
-export DJANGO_MONGODB_DB_NAME=''
-export DJANGO_MONGODB_CONNECTION_STRING='mongodb://localhost:27017'
-export DJANGO_AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY
-export DJANGO_AWS_SECRET_ACCESS_KEY=$AWS_SECRET_KEY
-export DJANGO_AWS_STORAGE_BUCKET_NAME=''
-export DJANGO_EMAIL_HOST=''
-export DJANGO_EMAIL_HOST_USER=''
-export DJANGO_EMAIL_PORT=''
-export DJANGO_EMAIL_HOST_PASSWORD=''
-export DJANGO_LEAD_EMAILS=''
-export DJANGO_CACHEOPS_FAKE=''
+# The next line enables shell command completion for gcloud.
+if [ -f ~/google-cloud-sdk/completion.bash.inc ]; then
+  source ~/google-cloud-sdk/completion.bash.inc
+fi
+
+alias k="kubectl"
+source $(brew --prefix)/etc/bash_completion
+source <(kubectl completion bash)

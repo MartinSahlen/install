@@ -5,3 +5,4 @@ jenv
 redis
 mysql
 postgresql
+go
