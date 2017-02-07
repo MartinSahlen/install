@@ -6,3 +6,6 @@ redis
 mysql
 postgresql
 go
+npm
+elm
+elm-format
