@@ -92,5 +92,15 @@ function install_dotfiles {
   test -d ~/.ssh || ssh-keygen -t rsa
 }
 
+#Need add go dependencies and apm dependencies
 
-install_gcloud_tools
+#Manually copy needed files such as ssh if present
+install_dotfiles;
+install_xcode_cli;
+setup_brew;
+install_brew_deps;
+install_brew_cask_deps;
+install_npm_globals;
+install_python_globals;
+install_gcloud_tools;
+install_git_aware;
