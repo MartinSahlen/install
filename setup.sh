@@ -116,13 +116,14 @@ function setup_apm {
 
 
 #Manually copy needed files such as ssh if present
-install_dotfiles
-install_xcode_cli
-setup_brew
-install_brew_deps
-install_brew_cask_deps
-install_npm_globals
-install_python_globals
-install_gcloud_tools
-install_git_aware
-setup_go
+install_dotfiles;
+install_xcode_cli;
+setup_brew;
+install_brew_deps;
+install_brew_cask_deps;
+install_npm_globals;
+install_python_globals;
+install_gcloud_tools;
+install_git_aware;
+setup_go;
+setup_apm;
