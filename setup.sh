@@ -11,7 +11,10 @@ function install_brew {
     </dev/null
     brew doctor
   else
+    echo "Brew was already installed, upgrading"
+    brew update;
     brew upgrade;
+    brew prune
   fi
 }
 
@@ -21,6 +24,11 @@ function install_brew_cask {
   if [ $? -ne 0 ]; then
     brew install caskroom/cask/brew-cask;
     brew cask doctor;
+  else
+    echo "Brew cask was already installed, upgrading"
+    brew update;
+    brew upgrade;
+    brew prune
   fi
 }
 
@@ -28,8 +36,6 @@ function setup_brew {
   echo "Setting up brew..."
   install_brew
   install_brew_cask
-  brew update
-  brew prune
 }
 
 function install_brew_deps {
@@ -98,13 +104,15 @@ function setup_go {
   echo "Installing go dependencies..."
   if hash go 2>/dev/null; then
     if [ -z ${GOPATH+x} ]; then
-      echo "GOPATH is set, continuing";
-      curl https://glide.sh/get | sh;
-      go get -u github.com/alecthomas/gometalinter;
-      gometalinter --install;
-      go get -u github.com/gopherjs/gopherjs;
+      echo "GOPATH is not set, aborting!"
     else
-      echo "GOPATH is not set, aborting!";
+      echo "GOPATH is set, continuing"
+      test -d $GOPATH/src || mkdir $GOPATH/src
+      test -d $GOPATH/bin || mkdir $GOPATH/bin
+      curl https://glide.sh/get | sh
+      go get -u github.com/alecthomas/gometalinter
+      gometalinter --install
+      go get -u github.com/gopherjs/gopherjs
     fi
   fi
 }
