@@ -92,15 +92,37 @@ function install_dotfiles {
   test -d ~/.ssh || ssh-keygen -t rsa
 }
 
-#Need add go dependencies and apm dependencies
+function setup_go {
+  echo "Installing go dependencies..."
+  if hash go 2>/dev/null; then
+    if [ -z ${GOPATH+x} ]; then
+      echo "GOPATH is set, continuing";
+      curl https://glide.sh/get | sh;
+      go get -u github.com/alecthomas/gometalinter;
+      gometalinter --install;
+      go get -u github.com/gopherjs/gopherjs;
+    else
+      echo "GOPATH is not set, aborting!";
+    fi
+  fi
+}
+
+function setup_apm {
+  echo "Installing apm libraries..."
+  if hash apm 2>/dev/null; then
+  	cat apm-requirements.txt | xargs apm install
+  fi
+}
+
 
 #Manually copy needed files such as ssh if present
-install_dotfiles;
-install_xcode_cli;
-setup_brew;
-install_brew_deps;
-install_brew_cask_deps;
-install_npm_globals;
-install_python_globals;
-install_gcloud_tools;
-install_git_aware;
+install_dotfiles
+install_xcode_cli
+setup_brew
+install_brew_deps
+install_brew_cask_deps
+install_npm_globals
+install_python_globals
+install_gcloud_tools
+install_git_aware
+setup_go
