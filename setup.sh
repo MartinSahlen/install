@@ -10,6 +10,8 @@ function install_brew {
     -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)" \
     </dev/null
     brew doctor
+  else
+    brew upgrade;
   fi
 }
 
