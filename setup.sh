@@ -95,9 +95,6 @@ function install_dotfiles {
 
   # Copy vim settings
   test -f ~/.vimrc || cp vimrc ~/.vimrc
-
-  # Make ssh key
-  test -d ~/.ssh || ssh-keygen -t rsa
 }
 
 function setup_go {
@@ -126,14 +123,14 @@ function setup_apm {
 
 
 #Manually copy needed files such as ssh if present
-install_dotfiles;
-install_xcode_cli;
-setup_brew;
-install_brew_deps;
-install_brew_cask_deps;
-install_npm_globals;
-install_python_globals;
-install_gcloud_tools;
-install_git_aware;
-setup_go;
-setup_apm;
+#install_dotfiles;
+#install_xcode_cli;
+#setup_brew;
+#install_brew_deps;
+#install_brew_cask_deps;
+#install_npm_globals;
+#install_python_globals;
+#install_gcloud_tools;
+#install_git_aware;
+#setup_go;
+#setup_apm;
