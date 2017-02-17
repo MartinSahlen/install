@@ -51,6 +51,9 @@ if [ -f ~/google-cloud-sdk/completion.bash.inc ]; then
   source ~/google-cloud-sdk/completion.bash.inc
 fi
 
-alias k="kubectl"
+if which kubectl > /dev/null; then
+  alias k="kubectl"
+  source <(kubectl completion bash)
+fi
+
 source $(brew --prefix)/etc/bash_completion
-source <(kubectl completion bash)

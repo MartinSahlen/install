@@ -56,8 +56,7 @@ function install_gcloud_tools {
   echo "Installing gcloud tools..."
   if !(hash gcloud 2>/dev/null); then
     curl https://sdk.cloud.google.com | bash
-    exec -l $SHELL
-    gcloud -q init
+    gcloud init
   fi
 
   if !(hash kubectl 2>/dev/null); then
@@ -121,16 +120,65 @@ function setup_apm {
   fi
 }
 
+function setup_mac {
+echo "---> Trackpad: enable tap to click for this user and for the login screen"
+defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool true 2>/dev/null
+defaults -currentHost write NSGlobalDomain com.apple.mouse.tapBehavior -int 1 2>/dev/null
+defaults write NSGlobalDomain com.apple.mouse.tapBehavior -int 1 2>/dev/null
+
+echo "---> Enable full keyboard access for all controls (e.g. enable Tab in modal dialogs)"
+defaults write NSGlobalDomain AppleKeyboardUIMode -int 3 2>/dev/null
+
+echo "---> Set a blazingly fast keyboard repeat rate"
+defaults write NSGlobalDomain KeyRepeat -int 0 2>/dev/null
+
+echo "---> Set a blazingly fast trackpad speed"
+defaults write -g com.apple.trackpad.scaling -int 5 2>/dev/null
+
+echo "---> Automatically illuminate built-in MacBook keyboard in low light"
+defaults write com.apple.BezelServices kDim -bool true 2>/dev/null
+
+echo "---> Turn off keyboard illumination when computer is not used for 5 minutes"
+defaults write com.apple.BezelServices kDimTime -int 300 2>/dev/null
+
+echo "---> Disable the warning before emptying the Trash"
+defaults write com.apple.finder WarnOnEmptyTrash -bool false 2>/dev/null
+
+echo "---> Disable the warning when changing a file extension"
+defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false 2>/dev/null
+
+echo "---> Remove the auto-hiding Dock delay"
+defaults write com.apple.dock autohide-delay -float 0 2>/dev/null
+
+echo "---> Automatically hide and show the Dock"
+defaults write com.apple.dock autohide -bool true 2>/dev/null
+
+
+defaults write com.apple.driver.AppleBluetoothMultitouch.mouse.plist MouseOneFingerDoubleTapGesture -int 0
+defaults write com.apple.driver.AppleBluetoothMultitouch.mouse.plist MouseTwoFingerDoubleTapGesture -int 3
+defaults write com.apple.driver.AppleBluetoothMultitouch.mouse.plist MouseTwoFingerHorizSwipeGesture -int 2
+defaults write com.apple.driver.AppleBluetoothMultitouch.mouse.plist MouseButtonMode -string TwoButton
+defaults write ~/Library/Preferences/.GlobalPreferences.plist com.apple.mouse.scaling -float 3
+defaults write ~/Library/Preferences/.GlobalPreferences.plist com.apple.swipescrolldirection -boolean NO
+
+}
 
 #Manually copy needed files such as ssh if present
+echo "---> Ask for the administrator password upfront"
+sudo -v
+
+# Keep-alive: update existing `sudo` time stamp until finished
+while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
+
+setup_mac;
 install_dotfiles;
 install_xcode_cli;
 setup_brew;
+install_git_aware;
 install_brew_deps;
 install_brew_cask_deps;
 install_npm_globals;
 install_python_globals;
-install_gcloud_tools;
-install_git_aware;
 setup_go;
 setup_apm;
+install_gcloud_tools;

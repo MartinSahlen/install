@@ -11,8 +11,7 @@ dropbox
 google-drive
 cocoarestclient
 sequel-pro
-heroku-toolbelt
 sublime-text
 skype
-google-cloud-sdk
 docker
+atom
