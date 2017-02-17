@@ -15,6 +15,13 @@ if [ -f `brew --prefix`/etc/bash_completion ]; then
     . `brew --prefix`/etc/bash_completion
 fi
 
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/sahlen/google-cloud-sdk/path.bash.inc' ]; then source '/Users/sahlen/google-cloud-sdk/path.bash.inc'; fi
+
+alias k="kubectl"
+source $(brew --prefix)/etc/bash_completion
+source <(kubectl completion bash)
+
 export GO15VENDOREXPERIMENT=1
 export GOPATH=$HOME/repositories/gopath
 export PATH=$PATH:$GOPATH/bin
@@ -40,20 +47,3 @@ eval "$(jenv init -)"
 if which jenv > /dev/null; then eval "$(jenv init -)"; fi
 
 export JAVA_HOME="$(/usr/libexec/java_home -v 1.8)"
-
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f ~/google-cloud-sdk/path.bash.inc ]; then
-  source ~/google-cloud-sdk/path.bash.inc
-fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f ~/google-cloud-sdk/completion.bash.inc ]; then
-  source ~/google-cloud-sdk/completion.bash.inc
-fi
-
-if which kubectl > /dev/null; then
-  alias k="kubectl"
-  source <(kubectl completion bash)
-fi
-
-source $(brew --prefix)/etc/bash_completion
