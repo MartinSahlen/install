@@ -56,7 +56,7 @@ function install_gcloud_tools {
   echo "Installing gcloud tools..."
   if !(hash gcloud 2>/dev/null); then
     curl https://sdk.cloud.google.com | bash
-    gcloud init
+    gcloud init --skip-diagnostics
   fi
 
   if !(hash kubectl 2>/dev/null); then
@@ -170,15 +170,15 @@ sudo -v
 # Keep-alive: update existing `sudo` time stamp until finished
 while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 
-setup_mac;
-install_dotfiles;
-install_xcode_cli;
-setup_brew;
-install_git_aware;
-install_brew_deps;
-install_brew_cask_deps;
-install_npm_globals;
-install_python_globals;
-setup_go;
-setup_apm;
+#setup_mac;
+#install_dotfiles;
+#install_xcode_cli;
+#setup_brew;
+#install_git_aware;
+#install_brew_deps;
+#install_brew_cask_deps;
+#install_npm_globals;
+#install_python_globals;
+#setup_go;
+#setup_apm;
 install_gcloud_tools;
