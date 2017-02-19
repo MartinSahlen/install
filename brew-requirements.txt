@@ -5,6 +5,9 @@ node
 jenv
 redis
 mysql
+leiningen
+maven
+maven-completion
 postgresql
 go
 npm
