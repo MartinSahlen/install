@@ -8,6 +8,7 @@ mysql
 leiningen
 maven
 maven-completion
+mono
 postgresql
 go
 npm
