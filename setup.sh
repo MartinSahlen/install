@@ -76,9 +76,9 @@ function install_git_aware {
 }
 
 function install_npm_globals {
-  echo "Installing npm globals..."
-  if hash npm 2>/dev/null; then
-  	cat npm-global-requirements.txt | xargs sudo npm install -g
+  echo "Installing npm globals... using yarn."
+  if hash yarn 2>/dev/null; then
+  	cat npm-global-requirements.txt | xargs sudo yarn global add
   fi
 }
 
