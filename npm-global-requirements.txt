@@ -3,3 +3,4 @@ gulp
 bower
 nodemon
 less
+ @google-cloud/functions-emulator
