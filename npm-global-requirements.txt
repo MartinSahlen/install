@@ -3,4 +3,5 @@ gulp
 bower
 nodemon
 less
- @google-cloud/functions-emulator
+@google-cloud/functions-emulator
+npm-check-updates
