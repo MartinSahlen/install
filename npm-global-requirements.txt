@@ -5,3 +5,4 @@ nodemon
 less
 @google-cloud/functions-emulator
 npm-check-updates
+geojson-xyz
