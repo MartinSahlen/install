@@ -16,3 +16,5 @@ npm
 elm
 elm-format
 yarn
+wget
+gdal
