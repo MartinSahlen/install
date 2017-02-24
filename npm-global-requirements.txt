@@ -6,3 +6,4 @@ less
 @google-cloud/functions-emulator
 npm-check-updates
 geojson-xyz
+http-server
