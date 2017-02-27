@@ -15,3 +15,4 @@ sublime-text
 skype
 docker
 atom
+postman
