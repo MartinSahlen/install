@@ -129,9 +129,6 @@ defaults write NSGlobalDomain com.apple.mouse.tapBehavior -int 1 2>/dev/null
 echo "---> Enable full keyboard access for all controls (e.g. enable Tab in modal dialogs)"
 defaults write NSGlobalDomain AppleKeyboardUIMode -int 3 2>/dev/null
 
-echo "---> Set a blazingly fast keyboard repeat rate"
-defaults write NSGlobalDomain KeyRepeat -int 0 2>/dev/null
-
 echo "---> Set a blazingly fast trackpad speed"
 defaults write -g com.apple.trackpad.scaling -int 5 2>/dev/null
 
