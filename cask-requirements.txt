@@ -20,3 +20,4 @@ webstorm
 whatsapp
 android-studio
 visual-studio-code
+spectacle
