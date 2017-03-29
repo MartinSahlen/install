@@ -19,3 +19,4 @@ postman
 webstorm
 whatsapp
 android-studio
+visual-studio-code
