@@ -18,3 +18,4 @@ atom
 postman
 webstorm
 whatsapp
+android-studio
