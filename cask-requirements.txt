@@ -21,3 +21,4 @@ whatsapp
 android-studio
 visual-studio-code
 spectacle
+djay-pro

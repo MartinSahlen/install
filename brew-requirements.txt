@@ -19,3 +19,4 @@ yarn
 wget
 gdal
 python
+watchman

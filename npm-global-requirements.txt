@@ -7,3 +7,4 @@ less
 npm-check-updates
 geojson-xyz
 http-server
+react-native-cli
