@@ -62,6 +62,7 @@ function install_gcloud_tools {
 
   if !(hash kubectl 2>/dev/null); then
     gcloud -q components install kubectl
+    source ~/.bash_profile
   fi
 
   gcloud -q components install alpha

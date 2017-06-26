@@ -20,4 +20,3 @@ wget
 gdal
 python
 watchman
-robomongo
