@@ -56,6 +56,7 @@ function install_gcloud_tools {
   echo "Installing gcloud tools..."
   if !(hash gcloud 2>/dev/null); then
     curl https://sdk.cloud.google.com | bash
+    source ~/.bash_profile
     gcloud init --skip-diagnostics
   fi
 
