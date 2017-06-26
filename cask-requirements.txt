@@ -22,3 +22,4 @@ android-studio
 visual-studio-code
 spectacle
 tunnelbear
+evernote
