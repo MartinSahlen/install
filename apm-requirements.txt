@@ -1,4 +1,3 @@
-language-yaml@0.29.0
 api-workbench@0.8.45
 atom-beautify@0.29.26
 autocomplete-java-minus@0.14.0
