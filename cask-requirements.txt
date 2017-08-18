@@ -19,7 +19,7 @@ postman
 webstorm
 whatsapp
 android-studio
-visual-studio-code
+visual-studio-code-insiders
 spectacle
 tunnelbear
 evernote

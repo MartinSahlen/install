@@ -30,6 +30,7 @@ function install_brew_cask {
     brew upgrade;
     brew prune
   fi
+  brew tap caskroom/versions
 }
 
 function setup_brew {
@@ -122,6 +123,13 @@ function setup_apm {
   fi
 }
 
+function setup_code() {
+  echo "Installing VS code libraries..."
+  if hash code 2>/dev/null; then
+  	  cat code-requirements.txt | xargs code --install-extension
+  fi
+}
+
 function setup_mac {
 echo "---> Trackpad: enable tap to click for this user and for the login screen"
 defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool true 2>/dev/null
@@ -180,4 +188,5 @@ install_npm_globals;
 install_python_globals;
 setup_go;
 setup_apm;
+setup_code;
 install_gcloud_tools;
