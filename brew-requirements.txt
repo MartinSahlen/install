@@ -20,4 +20,4 @@ wget
 gdal
 python
 watchman
-ionide
+protobuf
