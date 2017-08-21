@@ -109,9 +109,8 @@ function setup_go {
       test -d $GOPATH/src || mkdir $GOPATH/src
       test -d $GOPATH/bin || mkdir $GOPATH/bin
       curl https://glide.sh/get | sh
-      go get -u github.com/alecthomas/gometalinter
+      cat go-requirements.txt | xargs go get -u 
       gometalinter --install
-      go get -u github.com/gopherjs/gopherjs
     fi
   fi
 }
