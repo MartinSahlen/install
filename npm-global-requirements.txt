@@ -10,3 +10,4 @@ http-server
 react-native-cli
 create-react-app
 create-elm-app
+firebase-tools
