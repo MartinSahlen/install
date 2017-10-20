@@ -1,6 +1,6 @@
 function install_xcode_cli {
   echo "Installing Xcode CLI tools..."
-  xcode-select --install;
+  xcode-select --install
 }
 
 function install_brew {
@@ -12,8 +12,8 @@ function install_brew {
     brew doctor
   else
     echo "Brew was already installed, upgrading"
-    brew update;
-    brew upgrade;
+    brew update
+    brew upgrade
     brew prune
   fi
 }
@@ -22,12 +22,12 @@ function install_brew_cask {
   echo "Installing Homebrew Cask..."
   brew cask > /dev/null 2>&1;
   if [ $? -ne 0 ]; then
-    brew install caskroom/cask/brew-cask;
-    brew cask doctor;
+    brew tap caskroom/cask
+    brew cask doctor
   else
     echo "Brew cask was already installed, upgrading"
-    brew update;
-    brew upgrade;
+    brew update
+    brew upgrade
     brew prune
   fi
   brew tap caskroom/versions
@@ -48,7 +48,7 @@ function install_brew_deps {
 
 function install_brew_cask_deps {
   echo "Installing brew cask dependencies..."
-  cat cask-requirements.txt | xargs brew cask install --appdir="/Applications"
+  cat cask-requirements.txt | xargs brew cask install
   brew cleanup
   brew doctor
 }
@@ -106,10 +106,11 @@ function setup_go {
       echo "GOPATH is not set, aborting!"
     else
       echo "GOPATH is set, continuing"
+      test -d $GOPATH || mkdir $GOPATH
       test -d $GOPATH/src || mkdir $GOPATH/src
       test -d $GOPATH/bin || mkdir $GOPATH/bin
       curl https://glide.sh/get | sh
-      cat go-requirements.txt | xargs go get -u 
+      cat go-requirements.txt\ | xargs go get -u 
       gometalinter --install
     fi
   fi
@@ -122,10 +123,10 @@ function setup_apm {
   fi
 }
 
-function setup_code() {
+function setup_code {
   echo "Installing VS code libraries..."
   if hash code 2>/dev/null; then
-  	  cat code-requirements.txt | xargs code --install-extension
+  	  cat code-requirements.txt | xargs -L 1 code --install-extension
   fi
 }
 
@@ -176,16 +177,16 @@ sudo -v
 # Keep-alive: update existing `sudo` time stamp until finished
 while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 
-setup_mac;
-install_dotfiles;
-install_xcode_cli;
-setup_brew;
-install_git_aware;
-install_brew_deps;
-install_brew_cask_deps;
-install_npm_globals;
-install_python_globals;
-setup_go;
-setup_apm;
-setup_code;
-install_gcloud_tools;
+setup_mac
+install_dotfiles
+install_xcode_cli
+setup_brew
+install_git_aware
+install_brew_cask_deps
+install_brew_deps
+install_npm_globals
+install_python_globals
+setup_go
+setup_apm
+setup_code
+install_gcloud_tools

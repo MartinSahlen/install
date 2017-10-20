@@ -21,3 +21,4 @@ gdal
 python
 watchman
 protobuf
+brew-cask-completion
