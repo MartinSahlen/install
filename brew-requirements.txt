@@ -22,3 +22,4 @@ python
 watchman
 protobuf
 brew-cask-completion
+neo4j
