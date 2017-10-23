@@ -25,3 +25,4 @@ spectacle
 tunnelbear
 evernote
 metabase-app
+gogland
