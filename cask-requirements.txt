@@ -27,3 +27,4 @@ evernote
 metabase-app
 gogland
 gotomeeting
+zoomus
