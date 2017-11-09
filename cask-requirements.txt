@@ -28,3 +28,4 @@ metabase-app
 gogland
 gotomeeting
 zoomus
+dotnet
