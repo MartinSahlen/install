@@ -37,3 +37,4 @@ streetsidesoftware.code-spell-checker
 waderyan.gitblame
 yzhang.markdown-all-in-one
 smkamranqadri.vscode-bolt-language
+msjsdiag.debugger-for-chrome
