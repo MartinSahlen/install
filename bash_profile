@@ -15,8 +15,8 @@ if [ -f `brew --prefix`/etc/bash_completion ]; then
     . `brew --prefix`/etc/bash_completion
 fi
 
-# If you installed the SDK via Homebrew, otherwise ~/Library/Android/sdk
-export ANDROID_HOME=/usr/local/opt/android-sdk
+# If you installed the SDK via Homebrew
+~/Library/Android/sdk
 
 # The next line updates PATH and completion for the Google Cloud SDK.
 if [ -f ~/google-cloud-sdk/path.bash.inc ]; then source ~/google-cloud-sdk/path.bash.inc; fi

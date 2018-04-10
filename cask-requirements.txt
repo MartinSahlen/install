@@ -29,4 +29,3 @@ gogland
 gotomeeting
 zoomus
 dotnet-sdk
-android-sdk
