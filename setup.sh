@@ -31,6 +31,7 @@ function install_brew_cask {
     brew prune
   fi
   brew tap caskroom/versions
+  brew tap caskroom/drivers
 }
 
 function setup_brew {
