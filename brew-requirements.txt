@@ -25,3 +25,4 @@ brew-cask-completion
 neo4j
 azure-cli
 awscli
+scala
