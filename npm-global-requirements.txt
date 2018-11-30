@@ -13,3 +13,4 @@ create-elm-app
 firebase-tools
 create-react-native-app
 react-devtools
+ios-deploy

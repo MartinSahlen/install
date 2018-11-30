@@ -26,3 +26,4 @@ neo4j
 azure-cli
 awscli
 scala
+nvm
