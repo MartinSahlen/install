@@ -27,3 +27,4 @@ azure-cli
 awscli
 scala
 nvm
+gradle
