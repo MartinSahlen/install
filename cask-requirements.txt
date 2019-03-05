@@ -30,3 +30,4 @@ gotomeeting
 zoomus
 dotnet-sdk
 garmin-express
+kitematic
