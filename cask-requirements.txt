@@ -33,3 +33,4 @@ garmin-express
 kitematic
 xquartz
 wine-stable
+dbvisualizer
