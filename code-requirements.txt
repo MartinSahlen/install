@@ -11,7 +11,6 @@ dbaeumer.vscode-eslint
 donjayamanne.githistory
 DotJoshJohnson.xml
 eamodio.gitlens
-eg2.tslint
 eg2.vscode-npm-script
 EQuimper.react-native-react-redux
 esbenp.prettier-vscode
@@ -39,12 +38,13 @@ ms-vscode.cpptools
 ms-vscode.csharp
 ms-vscode.Go
 ms-vscode.Theme-MarkdownKit
+ms-vscode.vscode-typescript-tslint-plugin
 msjsdiag.debugger-for-chrome
+octref.vetur
 oderwat.indent-rainbow
 PeterJausovec.vscode-docker
 rbbit.typescript-hero
 redhat.java
-robertohuertasm.vscode-icons
 ryu1kn.partial-diff
 Shan.code-settings-sync
 SirTori.indenticator
@@ -57,6 +57,7 @@ vscjava.vscode-java-dependency
 vscjava.vscode-java-pack
 vscjava.vscode-java-test
 vscjava.vscode-maven
+vscode-icons-team.vscode-icons
 vsmobile.vscode-react-native
 waderyan.gitblame
 WallabyJs.quokka-vscode
