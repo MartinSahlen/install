@@ -20,7 +20,7 @@ postman
 webstorm
 whatsapp
 android-studio
-visual-studio-code-insiders
+visual-studio-code
 spectacle
 tunnelbear
 evernote
@@ -34,3 +34,4 @@ kitematic
 xquartz
 wine-stable
 dbvisualizer
+font-fira-code

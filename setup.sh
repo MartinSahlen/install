@@ -32,6 +32,7 @@ function install_brew_cask {
   fi
   brew tap caskroom/versions
   brew tap caskroom/drivers
+  brew tap homebrew/cask-fonts  
 }
 
 function setup_brew {
