@@ -35,3 +35,4 @@ xquartz
 wine-stable
 dbvisualizer
 font-fira-code
+cakebrew
