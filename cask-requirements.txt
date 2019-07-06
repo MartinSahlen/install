@@ -36,3 +36,4 @@ wine-stable
 dbvisualizer
 font-fira-code
 cakebrew
+midi-monitor
