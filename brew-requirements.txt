@@ -29,3 +29,4 @@ scala
 nvm
 gradle
 portmidi
+micronaut
