@@ -39,3 +39,4 @@ cakebrew
 midi-monitor
 musescore
 dash
+nosleep
