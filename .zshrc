@@ -2,11 +2,14 @@ export ZSH=~/.oh-my-zsh
 ZSH_THEME="agnoster"
 
 plugins=(
+  aws
   git
   kubectl
   postgres
   battery
   docker
+  gcloud
+  golang
   osx
   nvm
   npm
@@ -17,12 +20,12 @@ plugins=(
   python
   redis-cli
   thefuck
-  gcloud
   vscode
   timer
-  golang
   virtualenv
   virtualenvwrapper
+  zsh-256color
+  zsh-autosuggestions
 )
 
 source $ZSH/oh-my-zsh.sh
