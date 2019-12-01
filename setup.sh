@@ -57,27 +57,11 @@ function install_brew_cask_deps {
 
 function install_gcloud_tools {
   echo "Installing gcloud tools..."
-  if !(hash gcloud 2>/dev/null); then
-    curl https://sdk.cloud.google.com | bash
-    source ~/.bash_profile
-    gcloud init --skip-diagnostics
-  fi
-
-  if !(hash kubectl 2>/dev/null); then
-    gcloud -q components install kubectl
-    source ~/.bash_profile
-  fi
-
   gcloud -q components install alpha
   gcloud -q components update alpha
   gcloud -q components install beta
   gcloud -q components update beta
   gcloud -q components update
-}
-
-function install_git_aware {
-  echo "Installing git aware..."
-  test -d ~/.bash/git-aware-prompt || `mkdir ~/.bash && git clone git://github.com/jimeh/git-aware-prompt.git ~/.bash/git-aware-prompt`
 }
 
 function install_npm_globals {
@@ -95,8 +79,9 @@ function install_python_globals {
 function install_dotfiles {
   echo "Installing dotfiles"
   # Copy boilerplate bash profile and init settings
-  test -f ~/.bash_profile || `cp bash_profile ~/.bash_profile && source ~/.bash_profile`
-
+  test -f ~/.zshrc || `cp zshrc ~/.zshrc && source ~/.zshrc`
+  cd $ZSH_CUSTOM/plugins && git clone https://github.com/chrissicool/zsh-256color && cd
+  git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
   # Copy vim settings
   test -f ~/.vimrc || cp vimrc ~/.vimrc
 }
