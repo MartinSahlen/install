@@ -30,3 +30,4 @@ nvm
 gradle
 portmidi
 micronaut
+Rigellute/tap/spotify-tui
