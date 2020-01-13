@@ -40,3 +40,4 @@ midi-monitor
 musescore
 dash
 nosleep
+virtualbox
