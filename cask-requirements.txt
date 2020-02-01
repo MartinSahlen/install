@@ -41,3 +41,4 @@ musescore
 dash
 nosleep
 virtualbox
+ngrok
