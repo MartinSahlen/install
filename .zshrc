@@ -36,3 +36,5 @@ export ANDROID_HOME=~/Library/Android/sdk
 export NVM_DIR="$HOME/.nvm"
 . "/usr/local/opt/nvm/nvm.sh"
 RPROMPT='$(battery_pct_prompt)'
+source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+

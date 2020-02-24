@@ -32,3 +32,4 @@ portmidi
 micronaut
 Rigellute/tap/spotify-tui
 freetds
+zsh-syntax-highlighting
