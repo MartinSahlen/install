@@ -44,3 +44,5 @@ virtualbox
 ngrok
 duet
 blackhole
+steam
+discord
