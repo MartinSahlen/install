@@ -47,3 +47,4 @@ blackhole
 steam
 discord
 houseparty
+pgadmin4
