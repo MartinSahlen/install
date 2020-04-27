@@ -28,6 +28,8 @@ plugins=(
   zsh-autosuggestions
 )
 
+export PATH="/usr/local/opt/python/libexec/bin:$PATH"
+
 source $ZSH/oh-my-zsh.sh
 
 export GOPATH=$HOME/repositories/gopath
