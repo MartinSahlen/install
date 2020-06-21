@@ -48,3 +48,4 @@ steam
 discord
 houseparty
 pgadmin4
+caprine
