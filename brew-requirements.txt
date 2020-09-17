@@ -36,3 +36,4 @@ zsh-syntax-highlighting
 libev
 antlr@4
 gnu-sed
+gh
