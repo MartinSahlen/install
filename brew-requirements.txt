@@ -37,3 +37,4 @@ libev
 antlr@4
 gnu-sed
 gh
+kompose
