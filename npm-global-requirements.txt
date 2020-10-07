@@ -14,3 +14,5 @@ firebase-tools
 create-react-native-app
 react-devtools
 ios-deploy
+@quasar/icongenie
+@quasar/cli
