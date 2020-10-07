@@ -39,3 +39,6 @@ gnu-sed
 gh
 kompose
 coookiecutter
+kind
+minikube
+kubectl
