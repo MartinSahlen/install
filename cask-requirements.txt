@@ -49,3 +49,5 @@ discord
 houseparty
 pgadmin4
 caprine
+github
+sourcetree
