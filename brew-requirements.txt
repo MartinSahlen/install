@@ -42,3 +42,4 @@ coookiecutter
 kind
 minikube
 kubectl
+openapi-generator
