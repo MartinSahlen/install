@@ -40,6 +40,7 @@ export NVM_DIR="$HOME/.nvm"
 RPROMPT='$(battery_pct_prompt)'
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
+export JENV_ROOT="/usr/local/Cellar/jenv/"
 export PATH="$HOME/.jenv/bin:$PATH"
 eval "$(jenv init -)"
 
