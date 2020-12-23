@@ -43,3 +43,4 @@ kind
 minikube
 kubectl
 openapi-generator
+dbt

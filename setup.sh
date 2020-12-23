@@ -33,6 +33,7 @@ function install_brew_cask {
   brew tap caskroom/versions
   brew tap caskroom/drivers
   brew tap homebrew/cask-fonts  
+  brew tap fishtown-analytics/dbt
 }
 
 function setup_brew {
