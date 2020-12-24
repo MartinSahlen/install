@@ -28,7 +28,7 @@ plugins=(
   zsh-autosuggestions
 )
 
-export PATH="/usr/local/opt/python/libexec/bin:$PATH"
+export PATH="/usr/local/opt/python@3.8/libexec/bin:$PATH"
 
 source $ZSH/oh-my-zsh.sh
 
