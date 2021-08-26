@@ -44,3 +44,4 @@ minikube
 kubectl
 openapi-generator
 dbt
+kibana
